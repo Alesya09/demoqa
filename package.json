@@ -7,7 +7,7 @@
     "cy:open": "cypress open"
   },
   "keywords": [],
-  "author": "",
+  "author": "Alesya Alekseeva",
   "license": "ISC",
   "devDependencies": {
     "cypress": "^12.8.1"
