@@ -8,8 +8,8 @@ describe('Elements', () => {
 
   it('1.Verify Elements', () => {
 
-  cy.get('div.main-header').should('have.text','Elements')
-  cy.get('div.main-header').should('include.text', 'Element')
+    cy.get('div.main-header').should('have.text','Elements')
+    cy.get('div.main-header').should('include.text', 'Element')
   })
 
   it('2.Verify menu list Elements page', function () {
@@ -21,6 +21,7 @@ describe('Elements', () => {
 
   it('3.Verify text box', () => {
     cy.get('.btn#item-0').contains('Text Box').click()
+    cy.url('//text-box')
     cy.get('#userName-label').should( 'have.text','Full Name')
     cy.get('#userEmail-label').should('include.text', 'Email')
     cy.get('#currentAddress-label').should('include.text', 'Current Address')

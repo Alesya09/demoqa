@@ -1,0 +1,7 @@
+{
+  "checkBoxHome": ["Home","Desktop", "Documents", "Downloads"],
+
+  "checkBoxDesktop": ["Notes", "Commands"],
+
+  "checkBoxDocuments": ["WorkSpace", "Office"]
+}
