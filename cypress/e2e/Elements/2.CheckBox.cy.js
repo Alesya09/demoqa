@@ -16,7 +16,7 @@ describe('Check Box', () => {
     cy.get('#result').should('contain', 'You have selected')
   })
 
-  it.only('2.Open check box', function (){
+  it('2.Open check box', function (){
     cy.get('.btn#item-1').contains('Check Box').should('be.visible').click()
     cy.url('/checkbox')
     cy.get('button[aria-label=Toggle]').should('be.visible').click({force: true})
