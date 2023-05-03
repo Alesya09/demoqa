@@ -45,4 +45,11 @@ describe('Elements', () => {
     cy.get('p#email').should('contain', 'Email:', email)
     cy.get('p#currentAddress').should('contain', 'Current Address :', address)
   })
+
+  it('5. Check red border when not correct input email', () => {
+    cy.get('.btn#item-0').contains('Text Box').click()
+    cy.get('#userEmail').type('asdfgmail.com').should('have.value','asdfgmail.com' )
+    cy.get('#submit').should('be.visible', 'Submit').click()
+    cy.get('.field-error').should('have.css', 'border', '1px solid rgb(255, 0, 0)')
+  })
 })
