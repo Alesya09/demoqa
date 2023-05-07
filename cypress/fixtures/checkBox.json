@@ -1,4 +1,7 @@
 {
+  "allElementsCheckBox": ["Home","Desktop", "Notes", "Commands", "Documents", "WorkSpace", "React",
+    "Angular", "Veu", "Office", "Public", "Private", "Classified", "General","Downloads", "Word File.doc", "Excel File.doc"],
+
   "checkBoxHome": ["Home","Desktop", "Documents", "Downloads"],
 
   "checkBoxDesktop": ["Notes", "Commands"],
