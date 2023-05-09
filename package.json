@@ -10,7 +10,9 @@
   "author": "Alesya Alekseeva",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^12.8.1"
+    "cypress": "^12.8.1",
+    "cypress-downloadfile": "^1.2.3",
+    "cypress-file-upload": "^5.0.8"
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0"
