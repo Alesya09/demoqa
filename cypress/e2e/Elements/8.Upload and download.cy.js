@@ -22,7 +22,7 @@ describe('Upload and download', () => {
     // cy.readFile('cypress\\downloads\\sampleFile.jpeg')
     //   .should('exist').wait(6000)
   })
-  it('4. Check Select file-download from computer', function () {
+  it('3. Check Select file-download from computer', function () {
 
     // # 1
     cy.get('[id="uploadFile"]').attachFile('images/pizza.png')
