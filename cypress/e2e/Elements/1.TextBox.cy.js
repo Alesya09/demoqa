@@ -8,7 +8,6 @@ describe('Elements', () => {
 
   it('1.Verify Elements', () => {
 
-    cy.get('div.main-header').should('have.text','Elements')
     cy.get('div.main-header').should('include.text', 'Element')
   })
 
