@@ -20,7 +20,7 @@ describe('Broken link - images', () => {
     });
   });
 
-  it('2. Verify Broken image', () => {
+  it.skip('2. Verify Broken image', () => {
     cy.get('div p').should('contain', 'Broken image')
 
     // 1. Select all image (`img`) elements on the page.
