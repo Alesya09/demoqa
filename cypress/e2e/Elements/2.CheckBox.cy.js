@@ -1,3 +1,5 @@
+import CheckBoxPage from "../../pages/Elements/checkBox.page";
+
 describe('Check Box', () => {
   beforeEach(function () {
 
@@ -8,21 +10,21 @@ describe('Check Box', () => {
   })
 
   it('1.Verify check box', () => {
-    cy.get('.btn#item-1').contains('Check Box').should('be.visible').click()
+    CheckBoxPage.btnMenuCheckBox.contains('Check Box').should('be.visible').click()
     cy.url('/checkbox').should('include', '/checkbox')
-    cy.get('.main-header').should( 'have.text','Check Box')
-    cy.get('.rct-icon-expand-open').should('not.exist')
-    cy.get('button .rct-icon-expand-all').should('be.visible').click()
-    cy.get('.rct-icon-expand-open').should('exist')
-    cy.get('.rct-icon-collapse-all').should('be.visible').click()
+    CheckBoxPage.mainHeader.should( 'have.text','Check Box')
+    CheckBoxPage.iconExpandOpen.should('not.exist')
+    CheckBoxPage.iconExpandAll.should('be.visible').click()
+    CheckBoxPage.iconExpandOpen.should('exist')
+    CheckBoxPage.iconCollapseAll.should('be.visible').click()
   })
 
   it('2.All elements checkBox check and uncheck', function (){
-    cy.get('.btn#item-1').contains('Check Box').should('be.visible').click()
+    CheckBoxPage.btnMenuCheckBox.contains('Check Box').should('be.visible').click()
     cy.url('/checkbox')
     cy.get('button .rct-icon-expand-all').should('be.visible').click()
 
-    cy.get('.rct-title').each(($el, idx) => {
+    CheckBoxPage.titlesCheckBoxes.each(($el, idx) => {
       expect($el.text()).to.include(this.checkBoxData.allElementsCheckBox[idx])
     })
 
@@ -33,26 +35,26 @@ describe('Check Box', () => {
       .each(checkbox=> {
         expect(checkbox[0].checked).to.equal(true)
       })
-    cy.get('#result').should('contain', 'You have selected').and('exist')
+    CheckBoxPage.resultAfterCheck.should('contain', 'You have selected').and('exist')
 
-    cy.get('[type="checkbox"]')
+    cy.get('@checkboxes')
       .first()
       .uncheck({force:true}).should('not.be.checked')
     cy.get('#result').should('not.exist')
   })
 
-  it.only('3.Check each element separate', function (){
-    cy.get('.btn#item-1').contains('Check Box').should('be.visible').click()
+  it('3.Check each element separate', function (){
+    CheckBoxPage.btnMenuCheckBox.contains('Check Box').should('be.visible').click()
 
     // cy.get('button[aria-label=Toggle]').click()
     // cy.get('ol li:nth-child(3) button').click()
     // cy.contains('Excel File.doc').click()
 
     cy.get('span .rct-title').should('contain', 'Home')
-    cy.get('#result').should('not.exist')
+    CheckBoxPage.resultAfterCheck.should('not.exist')
     cy.get('[type="checkbox"]').check({force:true}).should('be.checked')
-    cy.get('#result').should('exist')
-    cy.get('#result').should('contain', 'You have selected')
+    CheckBoxPage.resultAfterCheck.should('exist')
+    CheckBoxPage.resultAfterCheck.should('contain', 'You have selected')
   })
 
 
@@ -73,7 +75,7 @@ describe('Check Box', () => {
 
     cy.get('ol li:nth-child(3) button').click()
     cy.contains('Excel File.doc').click()
-    cy.get('#result').should('contain', 'You have selected')
+    CheckBoxPage.resultAfterCheck.should('contain', 'You have selected')
   })
 })
 

@@ -1,3 +1,4 @@
+import RadioButtonPage from "../../pages/Elements/radioButton.page";
 describe('Radio Button', () => {
   beforeEach(function () {
 
@@ -5,12 +6,12 @@ describe('Radio Button', () => {
 
   })
   it('Verify radio button', () => {
-    cy.get('.mb-3').should('have.text', 'Do you like the site?')
-    cy.get('input#yesRadio').check({force: true}).should('be.checked')
-    cy.get('div .mt-3').should('have.text', 'You have selected Yes')
-    cy.get('input#yesRadio').check({force: true}).should('be.checked')
-    cy.get('input#impressiveRadio').check({force: true}).should('be.checked')
-    cy.get('div .mt-3').should('have.text', 'You have selected Impressive')
-    cy.get('input#noRadio').should('be.disabled')
+    RadioButtonPage.header.should('have.text', 'Do you like the site?')
+    RadioButtonPage.checkYes.check({force: true}).should('be.checked')
+    RadioButtonPage.verifyText.should('have.text', 'You have selected Yes')
+    RadioButtonPage.checkYes.check({force: true}).should('be.checked')
+    RadioButtonPage.checkImpressive.check({force: true}).should('be.checked')
+    RadioButtonPage.verifyText.should('have.text', 'You have selected Impressive')
+    RadioButtonPage.checkNo.should('be.disabled')
   })
 })

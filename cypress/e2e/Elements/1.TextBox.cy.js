@@ -1,31 +1,32 @@
+import TextBoxPage from "../../pages/Elements/textBox.page";
 describe('Elements', () => {
   beforeEach(function () {
 
     cy.visit('/elements')
-
     cy.fixture("elements.json").as("elementsMenuData")
+
   })
 
   it('1.Verify Elements', () => {
 
-    cy.get('div.main-header').should('include.text', 'Element')
+    TextBoxPage.headerElements.should('include.text', 'Element')
   })
 
   it('2.Verify menu list Elements page', function () {
-    cy.get('.menu-list').should('be.visible')
+    TextBoxPage.menuList.should('be.visible')
     this.elementsMenuData.listElements.forEach(($el) =>
-      cy.get('.menu-list').should('contain', `${$el}`)
+        TextBoxPage.menuList.should('contain', `${$el}`)
     )
   })
 
   it('3.Verify text box', () => {
-    cy.get('.btn#item-0').contains('Text Box').click()
+    TextBoxPage.btnTextBox.contains('Text Box').click()
     cy.url('//text-box')
-    cy.get('#userName-label').should( 'have.text','Full Name')
-    cy.get('#userEmail-label').should('include.text', 'Email')
-    cy.get('#currentAddress-label').should('include.text', 'Current Address')
-    cy.get('#permanentAddress-label').should('include.text', 'Permanent Address')
-    cy.get('#submit').should('include.text', 'Submit')
+    TextBoxPage.userNameLabel.should( 'have.text','Full Name')
+    TextBoxPage.userEmailLabel.should('include.text', 'Email')
+    TextBoxPage.userCurrentAddressLabel.should('include.text', 'Current Address')
+    TextBoxPage.userPermanentAddressLabel.should('include.text', 'Permanent Address')
+    TextBoxPage.btnSubmit.should('include.text', 'Submit')
   })
 
   it('4.Fill text box', () => {
@@ -33,22 +34,22 @@ describe('Elements', () => {
     let email = 'alice@gmail.com'
     let address = '123 Rou Rd, CA, 12345'
 
-    cy.get('.btn#item-0').contains('Text Box').click()
-    cy.get('#userName').type(name).should('have.value', name)
-    cy.get('#userEmail').type(email).should('have.value', email)
-    cy.get('#currentAddress').type(address).should('have.value', address)
-    cy.get('#submit').should('be.visible', 'Submit').click()
+    TextBoxPage.btnTextBox.contains('Text Box').click()
+    TextBoxPage.userName.type(name).should('have.value', name)
+    TextBoxPage.userEmail.type(email).should('have.value', email)
+    TextBoxPage.userCurrentAddress.type(address).should('have.value', address)
+    TextBoxPage.btnSubmit.should('be.visible', 'Submit').click()
 
-    cy.get('#output').should('be.visible')
-    cy.get('p#name').should('contain', 'Name:', name)
-    cy.get('p#email').should('contain', 'Email:', email)
-    cy.get('p#currentAddress').should('contain', 'Current Address :', address)
+    TextBoxPage.outputInform.should('be.visible')
+    TextBoxPage.outputInformName.should('contain', 'Name:', name)
+    TextBoxPage.outputInformEmail.should('contain', 'Email:', email)
+    TextBoxPage.outputInformCurrentAddress.should('contain', 'Current Address :', address)
   })
 
   it('5. Check red border when not correct input email', () => {
-    cy.get('.btn#item-0').contains('Text Box').click()
-    cy.get('#userEmail').type('asdfgmail.com').should('have.value','asdfgmail.com' )
-    cy.get('#submit').should('be.visible', 'Submit').click()
-    cy.get('.field-error').should('have.css', 'border', '1px solid rgb(255, 0, 0)')
+    TextBoxPage.btnTextBox.contains('Text Box').click()
+    TextBoxPage.userEmail.type('asdfgmail.com').should('have.value','asdfgmail.com' )
+    TextBoxPage.btnSubmit.should('be.visible', 'Submit').click()
+    TextBoxPage.fieldError.should('have.css', 'border', '1px solid rgb(255, 0, 0)')
   })
 })
