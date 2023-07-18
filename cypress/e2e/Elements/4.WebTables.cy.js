@@ -105,7 +105,7 @@ describe('Web Tables', () => {
     })
   })
 
-  it.only('6. Verify edit button', ()=>{
+  it('6. Verify edit button', ()=>{
     WebTablesPage.btnEdit.should('be.visible').click({force:true})
     WebTablesPage.modalWindow.should('be.visible')
     WebTablesPage.titleRegistrationModal.should('have.text', 'Registration Form')
